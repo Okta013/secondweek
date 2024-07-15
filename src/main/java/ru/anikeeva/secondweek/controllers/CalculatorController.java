@@ -22,11 +22,6 @@ public class CalculatorController {
 
         double result;
 
-        Calc calc = new Calc();
-        calc.setNumberOne(numberOne);
-        calc.setNumberTwo(numberTwo);
-        calc.setAction(action);
-
         switch(action){
             case "multiplication":
                 result = numberOne * numberTwo;
