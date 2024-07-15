@@ -43,4 +43,16 @@ public class WeaponController {
         return"redirect:/weapon";
     }
 
+    @GetMapping("/{id}/edit")
+    public String edit(Model model, @PathVariable("id") int id){
+        model.addAttribute("weapon", weaponDAO.show(id));
+        return"weapon/edit";
+    }
+
+    @PatchMapping("/{id}")
+    public String update(@ModelAttribute("weapon") Weapon weapon, @PathVariable("id") int id){
+        weaponDAO.update(id, weapon);
+        return"redirect:/weapon";
+    }
+
 }

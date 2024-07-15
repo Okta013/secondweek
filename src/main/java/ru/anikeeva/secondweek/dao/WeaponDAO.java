@@ -35,4 +35,12 @@ public class WeaponDAO {
         weapons.add(weapon);
     }
 
+    public void update(int id, Weapon updatedWeapon){
+        Weapon weaponToBeUpdated = show(id);
+
+        weaponToBeUpdated.setName(updatedWeapon.getName());
+        weaponToBeUpdated.setType(updatedWeapon.getType());
+        weaponToBeUpdated.setMagazineSize(updatedWeapon.getMagazineSize());
+    }
+
 }

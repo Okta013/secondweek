@@ -15,7 +15,7 @@ public class CalculatorController {
         return "calculator";
     }
 
-    @PostMapping()
+    @PostMapping("/calculator")
     public String calculate(@RequestParam("numberOne") double numberOne,
                             @RequestParam("numberTwo") double numberTwo,
                             @RequestParam("action") String action, Model model){
