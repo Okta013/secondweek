@@ -19,7 +19,6 @@ public class CalculatorController {
     public String calculate(@RequestParam("numberOne") double numberOne,
                             @RequestParam("numberTwo") double numberTwo,
                             @RequestParam("action") String action, Model model){
-
         double result;
 
         switch(action){

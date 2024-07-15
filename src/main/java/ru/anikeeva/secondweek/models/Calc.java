@@ -37,4 +37,5 @@ public class Calc {
     public void setResult(double result) {
         this.result = result;
     }
+
 }
