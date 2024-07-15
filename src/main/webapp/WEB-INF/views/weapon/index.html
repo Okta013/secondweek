@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>All weapons</title>
 </head>
 <body>
-<div th:each="weapon : ${weapons}">
-    <a th:href="@{/weapon/{id}(id=weapon.getId()})}" th:text="${weapon.getName()}">gun</a>
+<div>
+    <a th:href="@{/weapon/{id}(id=weapons.getId())}" th:text="${weapons.getName()}">gun</a>
 </div>
 </body>
 </html>
