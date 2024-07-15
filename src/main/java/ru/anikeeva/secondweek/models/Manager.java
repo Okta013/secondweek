@@ -67,4 +67,6 @@ public class Manager {
         this.age = age;
         this.experience = experience;
     }
+
+    public Manager() {}
 }

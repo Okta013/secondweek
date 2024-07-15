@@ -1,10 +1,12 @@
 package ru.anikeeva.secondweek.dao;
 
+import org.springframework.stereotype.Component;
 import ru.anikeeva.secondweek.models.Manager;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class ManagerDAO {
     public static int MANAGER_COUNT;
     private List<Manager> managers;
