@@ -45,4 +45,8 @@ public class Weapon {
         this.type = type;
         this.magazineSize = magazineSize;
     }
+
+    public Weapon(){
+
+    }
 }

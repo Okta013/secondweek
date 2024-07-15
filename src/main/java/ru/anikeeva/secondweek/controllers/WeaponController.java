@@ -3,10 +3,9 @@ package ru.anikeeva.secondweek.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import ru.anikeeva.secondweek.dao.WeaponDAO;
+import ru.anikeeva.secondweek.models.Weapon;
 
 @Controller
 @RequestMapping("/weapon")
@@ -31,4 +30,17 @@ public class WeaponController {
         model.addAttribute("weapons", weaponDAO.show(id));
         return("weapon/show");
     }
+
+    @GetMapping("/new")
+    public String newWeapon(Model model){
+        model.addAttribute("weapon", new Weapon());
+        return "weapon/new";
+    }
+
+    @PostMapping
+    public String create(@ModelAttribute("weapon") Weapon weapon){
+        weaponDAO.save(weapon);
+        return"redirect:/weapon";
+    }
+
 }

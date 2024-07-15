@@ -30,4 +30,9 @@ public class WeaponDAO {
         return weapons.stream().filter(weapon -> weapon.getId() == id).findAny().orElse(null);
     }
 
+    public void save(Weapon weapon){
+        weapon.setId(++WEAPONS_COUNT);
+        weapons.add(weapon);
+    }
+
 }
