@@ -8,5 +8,9 @@
 <div th:each="weapons : ${weapons}">
     <a th:href="@{/weapon/{id}(id=${weapons.getId()})}" th:text="${weapons.getName}">gun</a>
 </div>
+<br/>
+<hr/>
+
+<a href="weapon/new">Create new weapon</a>
 </body>
 </html>
