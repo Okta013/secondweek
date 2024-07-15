@@ -55,4 +55,10 @@ public class WeaponController {
         return"redirect:/weapon";
     }
 
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable("id") int id){
+        weaponDAO.delete(id);
+        return"redirect:/weapon";
+    }
+
 }

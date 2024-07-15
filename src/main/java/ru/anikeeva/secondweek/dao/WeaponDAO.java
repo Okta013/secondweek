@@ -43,4 +43,8 @@ public class WeaponDAO {
         weaponToBeUpdated.setMagazineSize(updatedWeapon.getMagazineSize());
     }
 
+    public void delete(int id){
+        weapons.removeIf(w -> w.getId() == id);
+    }
+
 }
