@@ -16,28 +16,36 @@ public class CalculatorController {
     }
 
     @PostMapping()
-    public String calculate(@ModelAttribute Calc form){
+    public String calculate(@RequestParam("numberOne") double numberOne,
+                            @RequestParam("numberTwo") double numberTwo,
+                            @RequestParam("action") String action, Model model){
+
         double result;
 
-        switch (form.getAction()) {
+        Calc calc = new Calc();
+        calc.setNumberOne(numberOne);
+        calc.setNumberTwo(numberTwo);
+        calc.setAction(action);
+
+        switch(action){
             case "multiplication":
-                result = form.getNumberOne() * form.getNumberTwo();
+                result = numberOne * numberTwo;
                 break;
             case "division":
-                result = form.getNumberOne() / form.getNumberTwo();
+                result = numberOne / numberTwo;
                 break;
             case "subtraction":
-                result = form.getNumberOne() - form.getNumberTwo();
+                result = numberOne - numberTwo;
                 break;
             case "addition":
-                result = form.getNumberOne() + form.getNumberTwo();
+                result = numberOne + numberTwo;
                 break;
             default:
-                result = 0.0;
-                break;
+                result = 0;
         }
 
-        form.setResult(result);
+        model.addAttribute("result", result);
+
         return "calculator";
     }
 }
