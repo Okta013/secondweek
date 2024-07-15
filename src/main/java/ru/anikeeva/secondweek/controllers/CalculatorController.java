@@ -38,6 +38,6 @@ public class CalculatorController {
         }
 
         form.setResult(result);
-        return "redirect:/calculator";
+        return "calculator";
     }
 }
