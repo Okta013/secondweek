@@ -66,5 +66,7 @@ public class Employee {
         this.managerId = managerId;
     }
 
+    public Employee(){}
+
 
 }

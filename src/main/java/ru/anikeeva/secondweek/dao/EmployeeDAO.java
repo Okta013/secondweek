@@ -1,10 +1,12 @@
 package ru.anikeeva.secondweek.dao;
 
+import org.springframework.stereotype.Component;
 import ru.anikeeva.secondweek.models.Employee;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class EmployeeDAO {
     public static int EMPLOYEE_COUNT;
     private List<Employee> employees;
