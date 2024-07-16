@@ -23,7 +23,9 @@
     <input type="submit" value="Calculate"/>
 </form>
 <p>Result is:</p>
-<p th:text="${operation.getResult()}"></p>
+<div th:if="${operation.result != null}">
+    <p th:text="${operation.result}"></p>
+</div>
 <br/>
 <p>History of calculation:</p>
 <p th:text="${history}"></p>
