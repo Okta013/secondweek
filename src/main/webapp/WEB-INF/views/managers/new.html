@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New manager</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/managers}" th:object="${manager}">
+    <label for="name">Enter manager's name</label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <br/>
+    <label for="surname">Enter manager's surname</label>
+    <input type="text" th:field="*{surname}" id="surname"/>
+    <br/>
+    <label for="age">Enter manager's age</label>
+    <input type="text" th:field="*{age}" id="age"/>
+    <br/>
+    <label for="experience">Enter manager's name</label>
+    <input type="text" th:field="*{experience}" id="experience"/>
+    <br/>
+    <input type="submit" value="Create"/>
+</form>
+
+</body>
+</html>
