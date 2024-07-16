@@ -1,10 +1,15 @@
 package ru.anikeeva.secondweek.models;
 
+import org.springframework.stereotype.Component;
+
+import java.util.List;
+
 public class Calc {
     private double numberOne;
     private double numberTwo;
     private String action;
     private double result;
+    private List<String> operations;
 
     public double getNumberOne() {
         return numberOne;
@@ -38,4 +43,11 @@ public class Calc {
         this.result = result;
     }
 
+    public List<String> getOperations() {
+        return operations;
+    }
+
+    public void setOperations(List<String> operations) {
+        this.operations = operations;
+    }
 }

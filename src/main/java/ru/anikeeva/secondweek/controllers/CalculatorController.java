@@ -3,15 +3,22 @@ package ru.anikeeva.secondweek.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import ru.anikeeva.secondweek.dao.CalculatorDAO;
 import ru.anikeeva.secondweek.models.Calc;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/calculator")
 public class CalculatorController {
 
-    @GetMapping("/calculator")
+    private final CalculatorDAO calculatorDAO;
+
+    public CalculatorController(CalculatorDAO calculatorDAO) {
+        this.calculatorDAO = calculatorDAO;
+    }
+
+    @GetMapping
     public String showCalculator(Model model) {
-        model.addAttribute("calc", new Calc());
+        model.addAttribute("calc", calculatorDAO.index());
         return "calculator";
     }
 
@@ -39,6 +46,8 @@ public class CalculatorController {
         }
 
         model.addAttribute("result", result);
+
+        calculatorDAO.add(result);
 
         return "calculator";
     }
