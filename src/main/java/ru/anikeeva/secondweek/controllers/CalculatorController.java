@@ -14,7 +14,7 @@ public class CalculatorController {
 
     List<Calculator> history = new ArrayList<>();
 
-    @GetMapping("/calculator")
+    @GetMapping
     public String showCalculator(Model model){
         model.addAttribute("operation", new Calculator());
         model.addAttribute("history", history);
