@@ -12,6 +12,7 @@ public class Manager {
     private List<Employee> employees;
 
 
+
     public int getId() {
         return id;
     }
@@ -60,13 +61,16 @@ public class Manager {
         this.employees = employees;
     }
 
-    public Manager(int id, String name, String surname, int age, double experience) {
+    public Manager(int id, String name, String surname, int age, double experience, List<Employee> employees) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.age = age;
         this.experience = experience;
+        this.employees = employees;
     }
 
     public Manager() {}
+
+
 }

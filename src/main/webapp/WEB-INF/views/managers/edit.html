@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<form th:method="PATCH" th:action="@{/managers/{id}(id=${manager.getId()})}" th:object="${manager}">
+<form th:method="PATCH" th:action="@{/managers/managers/{id}(id=${manager.getId()})}" th:object="${manager}">
     <label for="name">Enter manager's name</label>
     <input type="text" th:field="*{name}" id="name"/>
     <br/>

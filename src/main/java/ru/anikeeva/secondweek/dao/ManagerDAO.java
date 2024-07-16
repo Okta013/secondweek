@@ -1,6 +1,8 @@
 package ru.anikeeva.secondweek.dao;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import ru.anikeeva.secondweek.models.Employee;
 import ru.anikeeva.secondweek.models.Manager;
 
 import java.util.ArrayList;
@@ -10,13 +12,32 @@ import java.util.List;
 public class ManagerDAO {
     public static int MANAGER_COUNT;
     private List<Manager> managers;
+    private final EmployeeDAO employeeDAO;
+
+    @Autowired
+    public ManagerDAO(EmployeeDAO employeeDAO) {
+        this.employeeDAO = employeeDAO;
+    }
+
+    public List<Employee> addEmployeesToManager(int managerId) {
+        List<Employee> employeesForManager = new ArrayList<>();
+        for (Employee employee : employeeDAO.index()) {
+            if (employee.getManagerId() == managerId) {
+                    employeesForManager.add(employee);
+                }
+            }
+        return employeesForManager;
+    }
 
     {
         managers = new ArrayList<Manager>();
-        managers.add(new Manager(++MANAGER_COUNT, "Grigoriy", "Ovechkin", 35, 10));
-        managers.add(new Manager(++MANAGER_COUNT, "Mikhail", "Bolshakov", 39, 18));
-        managers.add(new Manager(++MANAGER_COUNT, "Elena", "Rubleva", 32, 8));
+        managers.add(new Manager(++MANAGER_COUNT, "Grigoriy", "Ovechkin", 35, 10, addEmployeesToManager(1)));
+        managers.add(new Manager(++MANAGER_COUNT, "Mikhail", "Bolshakov", 39, 18, addEmployeesToManager(2)));
+        managers.add(new Manager(++MANAGER_COUNT, "Elena", "Rubleva", 32, 8, addEmployeesToManager(3)));
     }
+
+
+
 
     public List<Manager> index(){
         return managers;
