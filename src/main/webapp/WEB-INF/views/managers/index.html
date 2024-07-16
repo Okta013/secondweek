@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All managers</title>
+</head>
+<body>
+
+<div th:each="manager : ${manager}">
+    <a th:href="@{/managers/{id}(id=${manager.getId()})}" th:text="${manager.getName()}">manager</a>
+</div>
+
+<a href="managers/new">Create new manager</a>
+
+</body>
+</html>
