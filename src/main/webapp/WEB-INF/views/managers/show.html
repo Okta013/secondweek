@@ -13,12 +13,20 @@
 <p th:text="${manager.getEmployees()}">value</p>
 <p th:text="${listEmployees}"></p>
 
+<br/>
+<hr/>
+
 <a th:href="@{managers/{id}/edit(id=${manager.getId()})}">Edit</a>
+
+<br/>
+<hr/>
 
 <form th:method="DELETE" th:action="@{managers/{id}(id=${manager.getId()})}">
     <input type="submit" value="Delete"/>
-
 </form>
+
+<br/>
+<hr/>
 
 </body>
 </html>
