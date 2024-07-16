@@ -22,7 +22,7 @@ public class ManagerController {
     }
 
     @GetMapping("/{id}")
-    public String show(@PathVariable("id") Integer id, Model model) {
+    public String show(@PathVariable("id") int id, Model model) {
         model.addAttribute("manager", managerDAO.show(id));
         return "managers/show";
     }
