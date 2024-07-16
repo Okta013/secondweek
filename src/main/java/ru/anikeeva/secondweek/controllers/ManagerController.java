@@ -12,12 +12,10 @@ import ru.anikeeva.secondweek.models.Manager;
 @RequestMapping("/managers")
 public class ManagerController {
     private final ManagerDAO managerDAO;
-    private final EmployeeDAO employeeDAO;
 
     @Autowired
     public ManagerController(ManagerDAO managerDAO, EmployeeDAO employeeDAO) {
         this.managerDAO = managerDAO;
-        this.employeeDAO = employeeDAO;
     }
 
     @GetMapping
@@ -29,6 +27,7 @@ public class ManagerController {
     @GetMapping("/{id}")
     public String show(@PathVariable("id") int id, Model model) {
         model.addAttribute("manager", managerDAO.show(id));
+        model.addAttribute("listEmployees", managerDAO.addEmployeesToManager(id));
         return "managers/show";
     }
 

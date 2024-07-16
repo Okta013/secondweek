@@ -11,6 +11,7 @@
 <p th:text="${manager.getAge()}">value</p>
 <p th:text="${manager.getExperience()}">value</p>
 <p th:text="${manager.getEmployees()}">value</p>
+<p th:text="${listEmployees}"></p>
 
 <a th:href="@{managers/{id}/edit(id=${manager.getId()})}">Edit</a>
 
