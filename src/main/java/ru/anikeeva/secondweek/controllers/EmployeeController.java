@@ -39,19 +39,19 @@ public class EmployeeController {
         return "redirect:/employees";
     }
 
-    @GetMapping("/{id}/edit")
+    @GetMapping("/employees/{id}/edit")
     public String edit( Model model, @PathVariable("id") int id) {
         model.addAttribute("employee", employeeDAO.show(id));
         return "employees/edit";
     }
 
-    @PatchMapping("/{id}")
+    @PatchMapping("/employees/{id}")
     public String update(@ModelAttribute("employee") Employee employee, @PathVariable("id") int id) {
         employeeDAO.update(id, employee);
         return "redirect:/employees";
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/employees/{id}")
     public String delete(@PathVariable("id") int id) {
         employeeDAO.delete(id);
         return "redirect:/employees";
