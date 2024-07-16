@@ -10,6 +10,7 @@
 <p th:text="${employee.getSurname()}">value</p>
 <p th:text="${employee.getAge()}">value</p>
 <p th:text="${employee.getExperience()}">value</p>
+<p th:text="${employee.getManagerId()}">value</p>
 
 <a th:href="@{employees/{id}/edit(id=${employee.getId()})}">Edit</a>
 

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Manager</title>
+</head>
+<body>
+
+<p th:text="${manager.getName()}">value</p>
+<p th:text="${manager.getSurname()}">value</p>
+<p th:text="${manager.getAge()}">value</p>
+<p th:text="${manager.getExperience()}">value</p>
+<p th:text="${manager.getEmployees()}">value</p>
+
+<a th:href="@{managers/{id}/edit(id=${manager.getId()})}">Edit</a>
+
+<form th:method="DELETE" th:action="@{managers/{id}(id=${manager.getId()})}">
+    <input type="submit" value="Delete"/>
+
+</form>
+
+</body>
+</html>
