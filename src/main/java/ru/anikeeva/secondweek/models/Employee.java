@@ -6,7 +6,7 @@ public class Employee {
     private String surname;
     private int age;
     private double experience;
-    private int managerId;
+    private Integer managerId;
 
 
     public int getId() {
@@ -67,6 +67,10 @@ public class Employee {
     }
 
     public Employee(){}
+
+    public Employee(Integer managerId){
+        this.managerId = managerId;
+    }
 
     @Override
     public String toString() {

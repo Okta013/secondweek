@@ -28,8 +28,14 @@ public class EmployeeController {
     }
 
     @GetMapping("/new")
-    public String newEmployee(Model model) {
-        model.addAttribute("employee", new Employee());
+    public String newEmployee(@RequestParam(value="managerId", required = false)
+                                  Integer managerId, Model model) {
+        if (managerId != null) {
+            model.addAttribute("employee", new Employee(managerId));
+        }
+        else {
+            model.addAttribute("employee", new Employee(0));
+        }
         return "employees/new";
     }
 
